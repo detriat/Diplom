@@ -26,7 +26,7 @@ a{
 }
 .text-card{margin-top: 0 !important;}
 .cards-item{
-  border: 1px solid rgba(68, 68, 68, 0.19);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
   margin: 5px 0;
   padding: 10px;
 }
