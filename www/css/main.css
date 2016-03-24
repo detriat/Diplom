@@ -1,0 +1,55 @@
+.tabs-positive > .tabs, .tabs.tabs-positive{
+  border-color: #e42112 !important;
+  background-color: #ef473a !important;
+  background-image: linear-gradient(0deg, #e42112, #e42112 50%, transparent 50%) !important;
+}
+
+.im-wrapper img{
+  width: 100%;
+}
+
+.menu-title{
+  font-size: 16px;
+  display: block;
+  margin: 5px 10px;
+  font-weight: bold;
+  color: #616161;
+}
+.small-title{font-size: 14px !important;}
+
+.menu-item{
+  margin: 15px 10px;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+}
+.text-card{margin-top: 0 !important;}
+.cards-item{
+  border: 1px solid rgba(68, 68, 68, 0.19);
+  margin: 5px 0;
+  padding: 10px;
+}
+.cards-item img{
+  display: block;
+  margin: 0 auto;
+  width: inherit !important;
+}
+
+.cards-item .description span{
+  display: block;
+  margin: 5px;
+}
+
+.cards-item .item-title{
+  color: #212121;
+}
+.cards-item .item-history{
+  color: #424242;
+}
+.price{
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bolder;
+  color:#ef473a !important;
+}
