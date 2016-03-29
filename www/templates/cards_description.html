@@ -1,0 +1,51 @@
+<ion-view view-title="Маргарита - любовь есть">
+    <ion-content>
+      <div class="im-wrapper">
+        <div  class="cards-item">
+            <img src="../img/margarita.png" alt="" />
+            <div class="description">
+              <b class="item-title">Маргарита — Любовь есть!</b>
+              <br>
+              <span layout="row" class="composition">
+
+              </span>
+               <div layout=row>
+                <div flex="60" class="price">
+                  Ціна: 50грн.
+                </div>
+                <div flex="40">
+                  <button class="button button-positive">
+                      Купити
+                  </button>
+                </div>
+              </div>
+              <div>
+                <md-table-container>
+                  <table md-table="" md-row-select="" multiple="" ng-model="selected" md-progress="promise" class="ng-pristine ng-untouched ng-valid md-table md-row-select" aria-invalid="false">
+                    <thead md-head="" md-order="query.order" md-on-reorder="getDesserts" class="md-head">
+                      <tr md-row="" class="md-row">
+                        <th md-column="" md-numeric="" class="md-column md-numeric">Назва</th>
+                        <th md-column="" md-numeric="" class="md-column md-numeric">Мл.</th>
+                      </tr>
+                    </thead>
+                    <thead class="md-table-progress">
+                      <tr>
+                        <th colspan="9">
+                          <md-progress-linear ng-show="deferred()" md-mode="indeterminate" aria-valuemin="0" aria-valuemax="100" role="progressbar" aria-hidden="true" class="ng-hide" style=""><div class="md-container md-mode-indeterminate"><div class="md-dashed"></div><div class="md-bar md-bar1"></div><div class="md-bar md-bar2"></div></div></md-progress-linear>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody md-body="" class="md-body">
+                      <!-- ngRepeat: dessert in desserts.data -->
+                      <tr md-row="" md-select="dessert" md-select-id="name" md-auto-select="" ng-repeat="dessert in desserts.data" class="md-row" style="">
+                        <td md-cell="" class="md-cell">Серебрянная текила</td>
+                        <td md-cell="" class="md-cell md-numeric">50</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </md-table-container>
+              </div>
+            </div>
+      </div>
+    </ion-content>
+</ion-view>

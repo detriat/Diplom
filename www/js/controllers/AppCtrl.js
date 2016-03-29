@@ -1,4 +1,4 @@
-﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout) {
+﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout, $state) {
     // Form data for the login modal
     $scope.loginData = {};
 
@@ -31,6 +31,9 @@
     $scope.closePopover = function () {
         $scope.popover.hide();
     };
+    $scope.home = function(){
+      $state.go('app.start');
+    }
     //Cleanup the popover when we're done with it!
     $scope.$on('$destroy', function () {
         $scope.popover.remove();

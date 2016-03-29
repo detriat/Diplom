@@ -95,6 +95,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
         }
     })
+    .state('app.cards_description', {
+        url: '/cards_description',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/cards_description.html',
+                controller: 'CardsDescriptionController'
+            }
+        }
+    })
+    .state('app.start', {
+        url: '/start',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/start.html',
+                controller: 'StartController'
+            }
+        }
+    })
     .state('app.extensions', {
         url: '/extensions',
         views: {
@@ -107,5 +125,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/components');
+    $urlRouterProvider.otherwise('/app/start');
 });

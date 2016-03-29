@@ -53,3 +53,25 @@ a{
   font-weight: bolder;
   color:#ef473a !important;
 }
+.startCategories{
+  height: 115px;
+  margin: 20px 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.startCategories img{
+  height: 100%;
+}
+.startCategories .title{
+  display: block;
+  position: relative;
+  top:-10px;
+  font-size: 14px;
+  background: #E0E0E0;
+  color:black;
+  line-height: 2;
+  padding-left: 5px;
+}
+
+.scroll{
+  padding-bottom: 50px;
+}

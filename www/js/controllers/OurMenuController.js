@@ -1,3 +1,3 @@
-app.controller('OurMenuController', function ($scope, $stateParams) {
+app.controller('OurMenuController', function ($scope, $stateParams, $state) {
 
 });
