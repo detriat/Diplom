@@ -2,7 +2,7 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.0.5
+ * v1.0.2
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -40,8 +40,7 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
       noBlur               = false,
       selectedItemWatchers = [],
       hasFocus             = false,
-      lastCount            = 0,
-      promiseFetch         = false;
+      lastCount            = 0;
 
   //-- public variables with handlers
   defineProperty('hidden', handleHiddenChange, true);
@@ -661,13 +660,11 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
       handleResults(items);
     } else if (items) {
       setLoading(true);
-      promiseFetch = true;
       $mdUtil.nextTick(function () {
         if (items.success) items.success(handleResults);
         if (items.then)    items.then(handleResults);
         if (items.finally) items.finally(function () {
           setLoading(false);
-          promiseFetch = false;
         });
       },true, $scope);
     }
@@ -732,7 +729,7 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
   function notFoundVisible () {
     var textLength = (ctrl.scope.searchText || '').length;
 
-    return ctrl.hasNotFound && !hasMatches() && (!ctrl.loading || promiseFetch) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();
+    return ctrl.hasNotFound && !hasMatches() && !ctrl.loading && textLength >= getMinLength() && hasFocus && !hasSelection();
   }
 
   /**
@@ -890,6 +887,7 @@ angular
  */
 
 function MdAutocomplete () {
+  var hasNotFoundTemplate = false;
 
   return {
     controller:   'MdAutocompleteCtrl',
@@ -916,8 +914,7 @@ function MdAutocomplete () {
       inputId:        '@?mdInputId'
     },
     link: function(scope, element, attrs, controller) {
-      controller.hasNotFound = element.hasNotFoundTemplate;
-      delete element.hasNotFoundTemplate;
+      controller.hasNotFound = hasNotFoundTemplate;
     },
     template:     function (element, attr) {
       var noItemsTemplate = getNoItemsTemplate(),
@@ -926,7 +923,7 @@ function MdAutocomplete () {
           tabindex        = attr.tabindex;
 
       // Set our variable for the link function above which runs later
-      element.hasNotFoundTemplate = !!noItemsTemplate;
+      hasNotFoundTemplate = noItemsTemplate ? true : false;
 
       if (!attr.hasOwnProperty('tabindex')) element.attr('tabindex', '-1');
 

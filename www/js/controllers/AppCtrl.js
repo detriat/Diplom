@@ -1,4 +1,4 @@
-﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout, $state) {
+﻿app.controller('AppCtrl', function ($scope, $rootScope, $ionicModal, $ionicPopover, $timeout, $state) {
     // Form data for the login modal
     $scope.loginData = {};
 
@@ -11,23 +11,26 @@
 
     var fab = document.getElementById('fab');
     fab.addEventListener('click', function () {
-        //location.href = 'https://twitter.com/satish_vr2011';
-        window.open('https://twitter.com/satish_vr2011', '_blank');
     });
+
+
 
     // .fromTemplate() method
     var template = '<ion-popover-view>' +
                     '   <ion-header-bar>' +
-                    '       <h1 class="title">My Popover Title</h1>' +
+                    '       <h1 class="title">Корзина</h1>' +
                     '   </ion-header-bar>' +
                     '   <ion-content class="padding">' +
-                    '       My Popover Contents' +
+                    '      <div ng-repeat="it in cart.items"> {{it.title}} </div> <br>' +
                     '   </ion-content>' +
                     '</ion-popover-view>';
 
-    $scope.popover = $ionicPopover.fromTemplate(template, {
+    $scope.popover = function () {
+          $scope.cart = $rootScope.cart;
+      $ionicPopover.fromTemplate(template, {
         scope: $scope
-    });
+      }).show();
+    }
     $scope.closePopover = function () {
         $scope.popover.hide();
     };
