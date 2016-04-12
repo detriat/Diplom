@@ -18,7 +18,7 @@
     // .fromTemplate() method
     var template = '<ion-popover-view>' +
                     '   <ion-header-bar>' +
-                    '       <h1 class="title">Корзина</h1>' +
+                    '       <h1 class="title"><a href="#/app/cart_description">Корзина</a></h1>' +
                     '   </ion-header-bar>' +
                     '   <ion-content class="padding">' +
                     '      <div ng-repeat="it in cart.items"> {{it.title}} </div> <br>' +

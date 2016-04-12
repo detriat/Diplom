@@ -109,6 +109,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
         }
     })
+    .state('app.cart_description', {
+        url: '/cart_description',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/cart_description.html',
+                controller: 'menuCardsController'
+            }
+        }
+    })
     .state('app.start', {
         url: '/start',
         views: {
