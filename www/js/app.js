@@ -123,6 +123,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
         }
     })
+
+    .state('app.receipt', {
+        url: '/receipt',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/receipt.html',
+                controller: 'ReceiptController'
+            }
+        }
+    })
+
     .state('app.extensions', {
         url: '/extensions',
         views: {

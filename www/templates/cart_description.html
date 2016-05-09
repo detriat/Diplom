@@ -10,8 +10,8 @@
               <span class="title">{{it.title}}</span>
                 <div layout="row">
                   <div flex="30" layout="row">
-                    <md-select ng-model="it.kolvo">
-                      <md-option ng-repeat="size in sizes" value="{{size}}">{{size}}</md-option>
+                    <md-select ng-model="it.kolvo" ng-change="kolvo()">
+                      <md-option ng-repeat="size in sizes" value="{{size}}" >{{size}}</md-option>
                     </md-select>
                   </div>
                   <div flex="30">
@@ -26,8 +26,7 @@
         </div>
 
         <span class="total">Всього: {{total}} грн.</span>
-
-        <button class="button button-block button-calm">Оплатити</button>
+        <a href="#/app/receipt"><button class="button button-block button-calm">Оплатити</button></a>
       </div>
     </ion-content>
 </ion-view>

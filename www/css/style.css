@@ -211,3 +211,20 @@ p {
 .platform-android .popover{
 margin-top:10px;
 }
+
+.table-receipt{
+  width: 100%;
+}
+
+.table-receipt tr:first-child{
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.table-receipt tr{
+  margin: 10px 0;
+}
+.table-receipt tr td:last-child{
+  text-align: right !important;
+  padding-right: 10px;
+}
