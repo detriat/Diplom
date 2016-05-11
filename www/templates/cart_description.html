@@ -26,7 +26,8 @@
         </div>
 
         <span class="total">Всього: {{total}} грн.</span>
-        <a href="#/app/receipt"><button class="button button-block button-calm">Оплатити</button></a>
+        <a data-ng-click="buy()"><button class="button button-block button-calm">Оплатити</button></a>
+         <div  ng-bind-html="renderHtml(payer)" id="pu"></div>
       </div>
     </ion-content>
 </ion-view>
