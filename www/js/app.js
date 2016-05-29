@@ -134,6 +134,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('app.auth', {
+        url: '/auth',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/auth.html',
+                controller: 'authController'
+            }
+        }
+    })
+
     .state('app.extensions', {
         url: '/extensions',
         views: {
