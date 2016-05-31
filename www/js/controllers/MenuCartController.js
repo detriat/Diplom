@@ -7,6 +7,8 @@
 
     function MenuCartController ($scope, $rootScope, List, $cookies, $timeout, $sce) {
       $scope.sizes = [1,2,3,4,5,6,7,8,9,10];
+      $rootScope.cartShow = false;
+      $rootScope.cartHide = true;
       $scope.renderHtml = function (htmlCode) {
           return $sce.trustAsHtml(htmlCode);
       };
@@ -21,12 +23,18 @@
       }
 
       function recalc () {
-                console.log($scope.cart.items);
+        console.log($scope.cart.items);
         $scope.total = 0;
         $scope.cart.items.forEach(function(item){
           $scope.total += item.price * item.kolvo;
         });
-
+        if ($scope.total !== 0){
+          $rootScope.cartShow = true;
+          $rootScope.cartHide = false;
+        }else{
+          $rootScope.cartShow = false;
+          $rootScope.cartHide = true;
+        }
       }
       if (typeof($cookies.getObject("cart"))!="undefined"){
         $scope.cart = $cookies.getObject("cart");
@@ -48,8 +56,6 @@
           var order = {
             buys: arr
           };
-
-
           List.buy.get({buys:arr}, function(item){
             console.log(item);
             $scope.payer = item.html;

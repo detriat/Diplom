@@ -6,6 +6,8 @@
     menuCardsController.$inject = ["$scope", "$rootScope", "List", "$cookies"];
 
     function menuCardsController ($scope, $rootScope, List, $cookies) {
+      $rootScope.cartShow = false;
+      $rootScope.cartHide = true;
 
       $scope.query = {
         order: "name",
@@ -20,8 +22,6 @@
           items: []
         };
       }
-
-
 
       $scope.add_tocart = function (item) {
 
@@ -43,6 +43,8 @@
         if (!check) $scope.cart.items.push(obj);
 
         $cookies.putObject("cart", $scope.cart);
+        $rootScope.cartShow = true;
+        $rootScope.cartHide = false;
         console.log($scope.cart);
       }
 

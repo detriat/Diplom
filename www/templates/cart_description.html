@@ -1,33 +1,39 @@
 <ion-view view-title="Корзина">
     <ion-content>
       <div class="im-wrapper">
-        <div layout="column" class="cart-item" ng-repeat="it in cart.items">
-          <div layout="row">
-            <div flex="25" class="cart-image">
-              <img src="../img/alcohol.jpg" alt="" />
-            </div>
-            <div flex="55" class="cart-item-description">
-              <span class="title">{{it.title}}</span>
-                <div layout="row">
-                  <div flex="30" layout="row">
-                    <md-select ng-model="it.kolvo" ng-change="kolvo()">
-                      <md-option ng-repeat="size in sizes" value="{{size}}" >{{size}}</md-option>
-                    </md-select>
+
+        <div ng-show="cartShow">
+          <div layout="column" class="cart-item" ng-repeat="it in cart.items">
+            <div layout="row">
+              <div flex="25" class="cart-image">
+                <img src="../img/alcohol.jpg" alt="" />
+              </div>
+              <div flex="55" class="cart-item-description">
+                <span class="title">{{it.title}}</span>
+                  <div layout="row">
+                    <div flex="30" layout="row">
+                      <md-select ng-model="it.kolvo" ng-change="kolvo()">
+                        <md-option ng-repeat="size in sizes" value="{{size}}" >{{size}}</md-option>
+                      </md-select>
+                    </div>
+                    <div flex="30">
+                        <i class="icon ion-trash-a" data-ng-click="delete_forCart($index)"></i>
+                    </div>
                   </div>
-                  <div flex="30">
-                      <i class="icon ion-trash-a" data-ng-click="delete_forCart($index)"></i>
-                  </div>
-                </div>
-            </div>
-            <div flex="15">
-              <span class="cart-price">{{it.price}} грн.</span>
+              </div>
+              <div flex="15">
+                <span class="cart-price">{{it.price}} грн.</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <span class="total">Всього: {{total}} грн.</span>
-        <a data-ng-click="buy()"><button class="button button-block button-calm">Оплатити</button></a>
-         <div  ng-bind-html="renderHtml(payer)" id="pu"></div>
+          <span class="total">Всього: {{total}} грн.</span>
+          <a data-ng-click="buy()"><button class="button button-block button-calm">Оплатити</button></a>
+           <div  ng-bind-html="renderHtml(payer)" id="pu"></div>
+        </div>
+      </div>
+      <div ng-show="cartHide">
+        cart is empty
       </div>
     </ion-content>
 </ion-view>
