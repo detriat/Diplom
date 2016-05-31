@@ -128,3 +128,7 @@ a{
     background-color: #E64A19;
     color: #fff;
 }
+.cartEmpty img{
+  width: 100%;
+  text-align: center;
+}
