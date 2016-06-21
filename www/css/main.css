@@ -33,7 +33,6 @@ a{
 .cards-item img{
   display: block;
   margin: 0 auto;
-  width: inherit !important;
 }
 
 .cards-item .description span{

@@ -6,7 +6,7 @@
           <div layout="column" class="cart-item" ng-repeat="it in cart.items">
             <div layout="row">
               <div flex="25" class="cart-image">
-                <img src="../img/alcohol.jpg" alt="" />
+                  <img ng-src="http://185.104.11.151:1280/images/{{it.img}}" alt="" />
               </div>
               <div flex="55" class="cart-item-description">
                 <span class="title">{{it.title}}</span>

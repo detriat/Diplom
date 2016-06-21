@@ -5,12 +5,12 @@
 
             <div  class="cards-item" ng-repeat="item in items">
               <a href="#/app/cards_description">
-                <img src="../img/margarita.png" alt="" />
+                <img ng-src="http://185.104.11.151:1280/images/{{item.image}}" alt="" />
               </a>
                 <div class="description">
                   <b class="item-title">{{item.title}}</b>
                   <br>
-                  <span class="item-history">{{item.koment}}</span>
+                  <span class="item-history">{{item.op}}</span>
 
                   <div layout=row>
                     <div flex="85" class="price">

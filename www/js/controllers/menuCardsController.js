@@ -22,9 +22,10 @@
           items: []
         };
       }
+      console.log($scope.cart);
+
 
       $scope.add_tocart = function (item) {
-
         var obj = {
           id: item.id,
           price: item.price,
@@ -32,24 +33,23 @@
           op: item.op,
           title: item.title,
           kolvo: 1,
+          img: item.image
         }
-
         var check = false;
-
         $scope.cart.items.forEach(function(it){
             if (it.id == obj.id) check = true;
         });
-        console.log(check);
         if (!check) $scope.cart.items.push(obj);
-
         $cookies.putObject("cart", $scope.cart);
         $rootScope.cartShow = true;
         $rootScope.cartHide = false;
-        console.log($scope.cart);
       }
 
       List.items.get($scope.query, function(item){
         $scope.items = item.data;
+        $scope.items.forEach(function(item){
+          item.image = item.images[0].src;
+        })
       });
     }
 })();
